@@ -1,0 +1,59 @@
+%error-input {
+    .field .ui.input input {
+        border: 1px solid #db4d6d !important;
+        background: rgba(219, 77, 109, 0.1) !important;
+        border-radius: 5px !important;
+    }
+}
+
+%general-form {
+    .error {
+        @extend %error-input;
+    }
+    .meta {
+        display: flex;
+        justify-content: flex-start;
+        .errorMessage {
+            color: #db4d6d;
+            font-size: 0.8em;
+        }
+        .hint {
+            display: none;
+            position: absolute;
+            left: -5em;
+            bottom: 5px;
+            max-width: 90%;
+            word-wrap: break-word;
+            vertical-align: middle;
+            -webkit-transform: perspective(1px) translateZ(0);
+            transform: perspective(1px) translateZ(0);
+            background-color: rgba(50, 50, 50, 0.85);
+            padding: 5px;
+            border-radius: 4px;
+            color: #fff;
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #e1e1e1;
+        }
+        &:hover .hint {
+            display: block;
+        }
+    }
+}
+
+.general.form {
+    @extend %general-form;
+}
+.chain .general.form {
+    .invalid {
+        @extend %error-input;
+    }
+    .meta {
+        .errorMessage.hidden {
+            display: block !important;
+        }
+    }
+}
+.legend {
+    position: relative;
+}

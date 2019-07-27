@@ -1,0 +1,79 @@
+.itemP {
+    position: relative;
+}
+
+.todo {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    margin: 1px;
+    height: 6rem;
+    max-height: 6rem;
+    overflow: hidden;
+    &:active {
+        animation: pressed 600ms ease-in-out;
+    }
+    .actived,
+    &.actived {
+        opacity: 0.01;
+        box-shadow: var(--box-shadow2);
+        // border: 2px solid var(--border-color);
+    }
+    &.actived:active,
+    &.actived:focus,
+    &.actived:hover {
+        color: grey;
+        background: #fff;
+        opacity: 0.8rem;
+
+        box-shadow: var(--box-shadow);
+    }
+
+    &.overd {
+        color: blue !important;
+    }
+    .itemP,
+    &.itemP {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        border-radius: var(--border-radius);
+        border: var(--border);
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        .imgContent {
+            height: 6rem;
+            max-width: 6rem;
+            width: 6rem;
+            max-height: 6rem;
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        .itemContent {
+            position: relative;
+            height: inherit;
+            width: 100%;
+        }
+        .childContent {
+            height: inherit;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}
+@keyframes pressed {
+    50% {
+        transform: scale(0.995);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

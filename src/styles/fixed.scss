@@ -1,0 +1,21 @@
+.fixedContent {
+    display: block;
+    position: fixed;
+    z-index: 100;
+    transform: translateX(0);
+    transition: transform 600ms ease-in-out;
+    &.right {
+        right: 0;
+    }
+    &.right[data-scroll='0'] {
+        transition: transform 600ms ease-in-out;
+        transform: translateX(100%);
+    }
+    &.left {
+        left: 0;
+    }
+    &.left[data-scroll='0'] {
+        transition: transform 600ms ease-in-out;
+        transform: translateX(-100%);
+    }
+}

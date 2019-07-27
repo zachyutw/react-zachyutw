@@ -1,0 +1,19 @@
+.nav {
+    background-color: var(--dark);
+    color: var(--color-0);
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    .menu {
+        width: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+        i {
+            font-size: 2em;
+
+            color: var(--light);
+        }
+    }
+}

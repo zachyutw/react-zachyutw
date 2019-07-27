@@ -1,0 +1,41 @@
+@import './index.css';
+@import './styles/nav';
+@import './styles/button';
+@import './styles/modal';
+@import './styles/section';
+@import './styles/form.scss';
+@import './styles/animation.scss';
+@import './styles/geoMap.scss';
+@import './styles/item.scss';
+@import './styles/fixed.scss';
+.btns {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.row {
+    flex-direction: row;
+}
+.column {
+    flex-direction: column;
+}
+.image {
+    position: relative;
+    .img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+.imagesViewer {
+    display: flex;
+    flex-direction: row;
+}
+
+.innerHtml {
+    position: relative;
+    text-align: left;
+    ul {
+        list-style-type: none;
+    }
+}

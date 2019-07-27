@@ -1,0 +1,11 @@
+.content {
+    width: 30em;
+    text-align: center;
+    padding: 4em 1em 1em 1em !important;
+}
+.btns button {
+    margin: 2em 1em 1em 1em !important;
+
+    padding-left: 3em !important;
+    padding-right: 3em !important;
+}

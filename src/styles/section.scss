@@ -1,0 +1,26 @@
+section.parallax {
+    position: relative;
+    padding: 2rem;
+    & > .bg {
+        min-width: 100%;
+        min-height: 40rem;
+        // background-image: url('https://i.imgur.com/vYCY8JK.png');
+        background-color: var(--light);
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    & > .content {
+        min-height: 30rem;
+        background: var(--light);
+    }
+}
+section.parallax.absolute {
+    & > .bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+}

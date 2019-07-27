@@ -1,0 +1,85 @@
+.animationTrans {
+    transition: transform 0.35s ease-in-out;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.fade {
+    animation: fade 2000ms;
+}
+@keyframes slideUp {
+    from {
+        transform: translateY(100vh);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+.slideUp {
+    animation: slideUp 500ms;
+}
+
+@keyframes scaleZoomIn {
+    from {
+        transform: scale(0.9);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+.scaleZoomIn {
+    animation: scaleZoomIn 600ms;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100vh);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+.slideDown {
+    animation: slideDown 500ms;
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(100vw);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+.slideLeft {
+    animation: slideLeft 500ms;
+}
+
+@keyframes slideRight {
+    from {
+        transform: translateX(-100vw);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+.slideRight {
+    animation: slideRight 500ms;
+}
+@keyframes flipUp {
+    from {
+        transform: rotateX(90deg);
+    }
+    to {
+        transform: rotateX(0deg);
+    }
+}
+.flipUp {
+    animation: flipUp 500ms;
+}
