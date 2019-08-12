@@ -2,7 +2,7 @@
     "name": "react-google-journey",
     "version": "0.1.0",
     "private": true,
-    "homepage": "https://zachyutw.github.io/react-google-journey",
+    "homepage": "https://zachyutw.github.io/react-zachyutw",
     "dependencies": {
         "@scenejs/effects": "^1.0.1",
         "detect-it": "^3.0.5",
@@ -39,24 +39,13 @@
         }
     },
     "lint-staged": {
-        "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-            "prettier --single-quote --write",
-            "git add"
-        ]
+        "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [ "prettier --single-quote --write", "git add" ]
     },
     "eslintConfig": {
         "extends": "react-app"
     },
     "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
+        "production": [ ">0.2%", "not dead", "not op_mini all" ],
+        "development": [ "last 1 chrome version", "last 1 firefox version", "last 1 safari version" ]
     }
 }
