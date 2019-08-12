@@ -1,19 +1,31 @@
+.navContainer {
+  background: #fafafa;
+}
 .nav {
-    background-color: var(--dark);
-    color: var(--color-0);
-    padding: 0.5rem;
+  color: var(--color-0);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  .menu {
+    width: 4rem;
     display: flex;
+    justify-content: center;
     align-items: center;
-    .menu {
-        width: 4rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 5px;
-        i {
-            font-size: 2em;
+    padding: 5px;
+    i {
+      font-size: 2em;
 
-            color: var(--light);
-        }
+      color: var(--light);
     }
+  }
+}
+.logo {
+  transition: transform 300ms ease-in-out;
+}
+.logo[data-scroll='0'] {
+  transform: scale(1.2, 1.2);
+  transition: transform 300ms ease-in-out;
 }

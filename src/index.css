@@ -1,121 +1,140 @@
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 :root {
-    --my-theme-color: #581d00;
-    --my-theme-color-r: #eaeaea;
-    --dark: #581d00;
-    --light: #eaeaea;
-    --bg: #fff;
-    --color-0: #eaeaea;
-    --color-1: #c6b7b0;
-    --color-2: #a18475;
-    --color-3: #7d503b;
-    --color-4: #581d00;
-    --word: #333;
-    --point: #c1645c;
-    --border-radius: .28571429rem;
-    --border: 1px solid rgba(34, 36, 38, .15);
-    --border-color: rgba(34, 36, 38, .8);
-    --box-shadow: 0 1px 2px 0 rgba(34, 36, 38, .15);
-    --box-shadow2: 2px 2px 2px rgba(50, 50, 50, 0.6);
+  --my-theme-color: #581d00;
+  --my-theme-color-r: #eaeaea;
+  --dark: #581d00;
+  --light: #eaeaea;
+  --bg: #fff;
+  /* --bgDark:#333; */
+  --color-0: #eaeaea;
+  --color-1: #c6b7b0;
+  --color-2: #a18475;
+  --color-3: #7d503b;
+  --color-4: #581d00;
+  --word: #333;
+  --point: #c1645c;
+  --border-radius: 0.28571429rem;
+  --border: 1px solid rgba(34, 36, 38, 0.15);
+  --border-color: rgba(34, 36, 38, 0.8);
+  --box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
+  --box-shadow2: 2px 2px 2px rgba(50, 50, 50, 0.6);
 }
 html {
-    font-size: 14px;
+  font-size: 14px;
 }
 body {
-    margin: 0;
-    color: var(--word);
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  color: var(--word);
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-
+a {
+  color: unset !important;
+}
+h1 {
+  font-family: 'Satisfy', cursive;
+}
+h2 {
+  font-family: 'baloo', cursive;
+}
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 form {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 button {
-    padding: 1rem;
-    background: #fff;
-    border-radius: 5px;
-    cursor: pointer;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.logo {
+  font-family: 'Amatic SC', Helvetica, sans-serif;
+  font-size: 2rem;
 }
 .hidden {
-    display: none !important;
+  display: none !important;
 }
 .btn {
-    cursor: pointer;
+  cursor: pointer;
 }
 .themeColor {
-    color: var(--color-2);
+  color: var(--color-2);
 }
 
 .inputItemP {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .fixDnD {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
 }
 
 img.cover,
 video.cover {
-    min-width: 100%;
-    min-height: 100%;
-    object-fit: cover;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
 }
 .mirror img,
 .mirror video {
-    transform: scaleX(-1);
+  transform: scaleX(-1);
 }
 .hidden {
-    display: none !important;
+  display: none !important;
 }
 .cotent {
-    display: flex;
+  display: flex;
 }
 .link {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .page {
-    min-height: 1500px;
+  min-height: 1500px;
 }
 .item {
-    width: 100%;
+  width: 100%;
 }
 .center {
-    text-align: center;
+  text-align: center;
 }
 
 .isLoading {
-    background-image: linear-gradient(to right, blue, pink);
-    background-position: 0px 0px;
-    background-size: 15rem 5rem;
-    background-repeat: repeat-x;
-    animation: animationBgImg 2s infinite alternate;
-    overflow: hidden;
+  background-image: linear-gradient(to right, blue, pink);
+  background-position: 0px 0px;
+  background-size: 15rem 5rem;
+  background-repeat: repeat-x;
+  animation: animationBgImg 2s infinite alternate;
+  overflow: hidden;
 }
 @keyframes animationBgImg {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: 100% 0;
-    }
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }

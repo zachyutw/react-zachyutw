@@ -1,0 +1,30 @@
+.page section {
+  height: 100vh;
+  min-height: 100vh;
+  max-height: 2000px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page section:nth-child(odd) {
+  background: var(--bg);
+  color: var(--word);
+}
+.page section:nth-child(even) {
+  background: var(--word);
+  color: var(--bg);
+}
+.page section:last-child {
+  height: 20rem;
+  min-height: 20rem;
+  max-height: 2000px;
+}
+
+.intro {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

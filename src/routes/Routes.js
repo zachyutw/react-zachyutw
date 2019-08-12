@@ -1,20 +1,20 @@
 import React, { Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
-const JourneyPage = React.lazy(() => import('../components/Pages/JourneyPage/JourneyPage'));
+const HomePage = React.lazy(() =>
+  import('../components/Pages/HomePage/HomePage')
+);
 
-export const journeyRoute = {
-    name: 'journey',
-    main: { path: '/:target?', name: 'main', url: '/' },
-    create: { path: '/create', name: 'create', url: '/create' }
+export const homeRoute = {
+  main: { path: '/:target?', name: 'home', url: '/', name: 'home', to: '/' }
 };
-export const navMainFields = [ journeyRoute ];
+export const navMainFields = [homeRoute];
 const Routes = () => {
-    return (
-        <Switch>
-            <Suspense fallback={<div>Loading...</div>}>
-                <Route {...journeyRoute.main} component={JourneyPage} />
-            </Suspense>
-        </Switch>
-    );
+  return (
+    <Switch>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Route {...homeRoute.main} component={HomePage} />
+      </Suspense>
+    </Switch>
+  );
 };
 export default Routes;

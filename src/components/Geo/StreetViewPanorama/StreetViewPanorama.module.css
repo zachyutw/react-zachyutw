@@ -1,8 +1,0 @@
-.view canvas {
-    transition: all 300ms ease-in-out;
-    filter: contrast(0.4);
-}
-.view:hover canvas {
-    filter: contrast(1);
-    transform: scale(1.2, 1.2);
-}

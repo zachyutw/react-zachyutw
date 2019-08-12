@@ -2,26 +2,47 @@
     "name": "react-google-journey",
     "version": "0.1.0",
     "private": true,
+    "homepage": "https://zachyutw.github.io/react-google-journey",
     "dependencies": {
+        "@scenejs/effects": "^1.0.1",
+        "detect-it": "^3.0.5",
         "faker": "^4.1.0",
         "gh-pages": "^2.0.1",
         "google-map-react": "^1.1.4",
+        "husky": "^3.0.3",
         "joi": "^14.3.1",
+        "lint-staged": "^9.2.1",
         "lodash": "^4.17.11",
         "node-sass": "^4.12.0",
-        "react": "^16.8.6",
-        "react-dom": "^16.8.6",
+        "prettier": "^1.18.2",
+        "react": "16.9.0",
+        "react-dom": "16.9.0",
         "react-router-dom": "^5.0.0",
+        "react-scenejs": "^1.1.0",
         "react-scripts": "3.0.1",
         "react-use-gesture": "^5.2.1",
+        "scenejs": "^1.1.4",
         "semantic-ui-css": "^2.4.1",
         "uuid": "^3.3.2"
     },
     "scripts": {
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build",
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+            "prettier --single-quote --write",
+            "git add"
+        ]
     },
     "eslintConfig": {
         "extends": "react-app"
