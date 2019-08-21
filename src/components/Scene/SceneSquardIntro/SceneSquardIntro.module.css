@@ -27,7 +27,7 @@
 }
 .wrapper {
   position: absolute;
-  width: 80%;
+  width: 300px;
   height: 100%;
   /* top: 50%;
     left: 50%;
@@ -44,7 +44,7 @@
   width: 300px;
   height: 300px;
   font-family: 'Raleway', sans-serif;
-  font-size: 20px;
+  font-size: 1rem;
 }
 [data-typing] {
   position: absolute;

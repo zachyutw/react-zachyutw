@@ -15,11 +15,11 @@ const SceneStringItem = ({ item, name, value, onChange = () => {} }) => {
       data-typing={itemName}
       style={
         itemName.length > 7
-          ? { left: '0', fontSize: `${2 * (1 + 2 / itemName.length)}rem` }
-          : { right: '0', fontSize: `${2 * (1 + 2 / itemName.length)}rem` }
+          ? { left: '0', fontSize: `${1.1 * (1 + 2 / itemName.length)}rem` }
+          : { right: '0', fontSize: `${1.1 * (1 + 2 / itemName.length)}rem` }
       }
     >
-      {_.capitalize(itemName)}
+      {itemName}
     </div>
   );
 };

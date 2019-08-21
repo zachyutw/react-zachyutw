@@ -4,7 +4,9 @@ import { kineticFrame, typing } from '@scenejs/effects';
 import s from './SceneSquardIntro.module.css';
 import _ from 'lodash';
 import SceneStringItem from '../../Scene/SceneStringItem/SceneStringItem';
-import useIsScrolledIntoView from '../../../hooks/useIsScrolledIntoView';
+// import useIsScrolledIntoView from '../../../hooks/useIsScrolledIntoView';
+import useIsScrolledIntoView from 'react-use-is-scrolled-into-view';
+const GROUP_BY_TEXT_LENGTH = 7;
 const SKILLS = [
   { name: 'javascript', linkUrl: '' },
   { name: 'react', linkUrl: '' },
@@ -25,7 +27,8 @@ const SKILLS = [
   { name: 'html5', linkUrl: '' },
   { name: 'webrtc', linkUrl: '' },
   { name: 'websocket', linkUrl: '' },
-  { name: 'scenejs', linkUrl: '' }
+  { name: 'scenejs', linkUrl: '' },
+  { name: 'rollup', linkUrl: '' }
 ];
 /**
  * @author zachyu.tw
@@ -48,15 +51,11 @@ const moveItem = item => (startTime, endTime, left, top, rotate, scale) => {
   });
 };
 
-const swagPosNeg = deg => {
-  const pos = deg,
-    neg = 5;
-  let result = 0;
-  result = Math.floor(Math.random() * (pos + neg)) - neg;
-  result = result < 0 ? result : result + 1;
-  return result;
-};
-
+const swagPosNeg = deg =>
+  _.chain(deg * 2 + 1)
+    .times(n => n - deg)
+    .sample()
+    .value();
 const SceneSquardIntro = ({ skills = SKILLS }) => {
   const ref = useRef(null);
   const containerRef = useRef(null);
@@ -67,7 +66,7 @@ const SceneSquardIntro = ({ skills = SKILLS }) => {
     let topLeftNum = 0;
     let topRightNum = 0;
     [...node.childNodes].forEach(div => {
-      if (div.innerText.length > 7) {
+      if (div.innerText.length > GROUP_BY_TEXT_LENGTH) {
         div.style.top = topLeftNum + 'px';
         topLeftNum = topLeftNum + div.offsetHeight;
       } else {
@@ -83,7 +82,7 @@ const SceneSquardIntro = ({ skills = SKILLS }) => {
     let startTime = 0;
     let endTime = 0;
     [...ref.current.childNodes].forEach((div, index) => {
-      if (div.innerText.length > 7) {
+      if (div.innerText.length > GROUP_BY_TEXT_LENGTH) {
         move(startTime, endTime, 100, 200 - topLeftNum, swagPosNeg(2), 1.2);
         startTime = endTime + 1;
         endTime = startTime;
@@ -97,7 +96,6 @@ const SceneSquardIntro = ({ skills = SKILLS }) => {
     });
     totalHeight = Math.max(topRightNum, topLeftNum);
     containerRef.current.style.height = totalHeight + 14 * 2 + 'px';
-
     move(startTime, endTime, 0, 0, 0, 1);
   }, []);
   useEffect(() => {
@@ -108,7 +106,7 @@ const SceneSquardIntro = ({ skills = SKILLS }) => {
     scene.set(
       skills.reduce((config, { name }, index) => {
         config[`[data-typing=${name}]`] = {
-          [index]: typing({ text: _.capitalize(name), duration: 1 })
+          [index]: typing({ text: name, duration: 1 })
         };
         return config;
       }, {})
