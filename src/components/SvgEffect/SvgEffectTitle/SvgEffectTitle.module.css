@@ -1,0 +1,9 @@
+.titleSvg[data-inview='true'] path {
+  animation: line-anim 2s ease forwards;
+}
+
+@keyframes line-anim {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
