@@ -22,23 +22,48 @@ import {
   StepLabel,
   Typography,
   StepContent,
-  Chip
+  Chip,
+  BottomNavigation,
+  BottomNavigationAction
 } from '@material-ui/core';
-
+import useIsScrolledIntoView from 'react-use-is-scrolled-into-view';
 import axios from 'axios';
 // import CanvasEffectRaining from '../../CanvasEffect/CanvasEffectRaining/CanvasEffectRaining';
 // import SceneSquardIntro from '../../Scene/SceneSquardIntro/SceneSquardIntro';
 import moment from 'moment';
 import icsToJson from 'ics-to-json';
+import GlobalContext from '../../../contexts/Global/GlobalContext';
+
+const FOOTER = 'footer';
+const INTRODUCTION = 'introduction';
+const SKILLS = 'skills';
+const CAREER = 'career';
+const WORKS = 'works';
+const skillsMarkdown = ` ### Using modern technologies to build Mobile, Responsive web applications
+  ### Advance React knowledage 
+  * hooks
+  * HOC
+  * renderProp
+  * router-control
+  * form-control 
+  * content api
+  ### Advance Web Design
+  * new Flex property
+  * transform animation
+  * media responsive
+  * 
+  `;
+const mainNavs = [
+  { href: '#' + INTRODUCTION, innerText: INTRODUCTION },
+  { href: '#' + SKILLS, innerText: SKILLS },
+  { href: '#' + CAREER, innerText: CAREER },
+  { href: '#' + WORKS, innerText: WORKS }
+];
 
 const FETCH_DATA_URL =
   'https://us-central1-soy-haven-237204.cloudfunctions.net/getData';
 const SCEENSHOT_URL =
-  'https://us-central1-soy-haven-237204.cloudfunctions.net/screenshot';
-const screenshotSiteUrl = url =>
-  `https://us-central1-soy-haven-237204.cloudfunctions.net/hellowWord?url=${encodeURIComponent(
-    url
-  )}`;
+  'https://us-central1-soy-haven-237204.cloudfunctions.net/cors/api/sceenshot';
 
 const SceneSquardIntro = React.lazy(() =>
   import('../../Scene/SceneSquardIntro/SceneSquardIntro')
@@ -51,13 +76,34 @@ const githubProjects = [
   }
 ];
 
+const MainNav = ({ children, className }) => {
+  const { activedSection } = useContext(GlobalContext);
+
+  return (
+    <div className={className}>
+      <BottomNavigation className={s.mainNavs}>
+        {mainNavs.map(({ href, innerText }) => (
+          <BottomNavigationAction
+            key={href}
+            href={href}
+            component={MLink}
+            data-selected={activedSection === innerText}
+            showLabel
+            label={innerText.toUpperCase()}
+          />
+        ))}
+      </BottomNavigation>
+      {children}
+    </div>
+  );
+};
 const ProjectItem = ({ name, imageUrl: propImageUrl, url }) => {
   const [imageUrl, setImageUrl] = useState(propImageUrl);
   useEffect(() => {
     axios.post(SCEENSHOT_URL, { url }).then(res => {
       setImageUrl(() => {
         return res.data.jpegBase64;
-      }).catch(err => ({ err }));
+      });
     });
   }, []);
 
@@ -77,24 +123,10 @@ const MailToLink = ({ send, body, innerText, children }) => {
     </MLink>
   );
 };
-const skillsMarkdown = ` ### Using modern technologies to build Mobile, Responsive web applications
-  ### Advance React knowledage 
-  * hooks
-  * HOC
-  * renderProp
-  * router-control
-  * form-control 
-  * content api
-  ### Advance Web Design
-  * new Flex property
-  * transform animation
-  * media responsive
-  * 
-  `;
 
 const Footer = () => {
   return (
-    <Box component="section" className={s.section}>
+    <section id={Footer} className={s.section}>
       <Container>
         <p>{`Copyright © ${process.env.REACT_APP_AUTHER_NAME}`}</p>
         <MailToLink
@@ -104,7 +136,7 @@ const Footer = () => {
           zachyu.tw@gmail.com
         </MailToLink>
       </Container>
-    </Box>
+    </section>
   );
 };
 const MOMENT_FORMAT = 'YYYY-MM-DD';
@@ -138,20 +170,12 @@ const HomeIntro = () => {
   );
 };
 
-const IntroductionBox = () => {
-  return (
-    <Box component="section" className={s.section}>
-      <Container>
-        <HomeIntro />
-      </Container>
-    </Box>
-  );
-};
 const MOMENT_INPUT_FORMAT = 'YYYYMMDD';
 const MOMENT_OUTPUT_FORMAT = 'YYYY-MM';
-const PeriodLocationIcon = ({ startDate, endDate, location }) => {
+const PeriodLocationIcon = ({ startDate, endDate, location, summary }) => {
   return (
-    <div className={s.icon}>
+    <div className={s.pearid_location_icon}>
+      <h4>{summary}</h4>
       <div className={s.timeperiod}>
         <Chip
           label={moment(startDate, MOMENT_INPUT_FORMAT).format(
@@ -164,7 +188,8 @@ const PeriodLocationIcon = ({ startDate, endDate, location }) => {
           )}
         />
       </div>
-      <a href="#">{location}</a>
+
+      <a>{location}</a>
     </div>
   );
 };
@@ -180,7 +205,7 @@ const JobTimeline = () => {
         console.log(res.data);
         setAsyncCareerTimeline(() => {
           const icsData = res.data.data.replace(/\\/g, ``);
-          console.log(icsData);
+
           return icsData;
         });
       });
@@ -199,11 +224,11 @@ const JobTimeline = () => {
             return (
               <Step key={index} active>
                 <StepLabel
+                  float="right"
+                  className={s.steplabel}
                   StepIconComponent={PeriodLocationIcon}
-                  StepIconProps={{ startDate, endDate, location }}
-                >
-                  {summary}
-                </StepLabel>
+                  StepIconProps={{ startDate, endDate, location, summary }}
+                />
                 <StepContent>
                   <div dangerouslySetInnerHTML={{ __html: description }} />
                 </StepContent>
@@ -215,37 +240,69 @@ const JobTimeline = () => {
     </div>
   );
 };
-const SkillsBox = () => {
+const SectionContainer = ({ children, id }) => {
+  const ref = useRef(null);
+  const isIntoView = useIsScrolledIntoView(ref, false);
+  const { onChange } = useContext(GlobalContext);
+  useEffect(
+    e => {
+      onChange(e, { id, actionType: 'sectionIntoView', isIntoView });
+    },
+    [isIntoView, id]
+  );
   return (
-    <Box component="section" className={s.section}>
-      <Container>
-        <div>
-          <h2>Skills</h2>
-          <SceneSquardIntro />
-        </div>
-        <div>
-          <h2>About</h2>
-          <p>
-            I am a coding lover who live in Vancouver. Have experices with
-            building complex web application. Fouthur more,{' '}
-          </p>
-        </div>
-      </Container>
-    </Box>
+    <section ref={ref} id={id} className={s.section} data-inview={isIntoView}>
+      <Container>{children}</Container>
+    </section>
   );
 };
 
+const IntroductionBox = () => {
+  return (
+    <SectionContainer id={INTRODUCTION}>
+      <HomeIntro />
+    </SectionContainer>
+  );
+};
+const SkillsBox = () => {
+  return (
+    <SectionContainer id={SKILLS}>
+      <div>
+        <h2>Skills</h2>
+        <SceneSquardIntro />
+      </div>
+      <div>
+        <h2>About</h2>
+        <p>
+          I am a coding lover who live in Vancouver. Have experices with
+          building complex web application. Fouthur more,{' '}
+        </p>
+      </div>
+    </SectionContainer>
+  );
+};
 const CarrerBox = () => {
   return (
-    <Box component="section" className={s.section}>
-      <Container style={{ padding: '3rem' }}>
-        <h2>Carrer</h2>
-        <p>Real-Time data from my calendar</p>
-        <div className="content">
-          <JobTimeline />
-        </div>
-      </Container>
-    </Box>
+    <SectionContainer id={CAREER}>
+      <h2>Carrer</h2>
+      <p>Real-Time data from my calendar</p>
+      <div className="content">
+        <JobTimeline />
+      </div>
+    </SectionContainer>
+  );
+};
+const WorksBox = () => {
+  return (
+    <SectionContainer id={WORKS}>
+      <h2>Works</h2>
+      <div className="content" />
+      <ReactMarkdown source={skillsMarkdown} />
+      {githubProjects.map(project => (
+        <ProjectItem key={project.name} {...project} />
+      ))}
+      <div />
+    </SectionContainer>
   );
 };
 const HomePage = ({
@@ -254,26 +311,20 @@ const HomePage = ({
   },
   location: { pathname, key }
 }) => {
+  const _onChange = useCallback((e, data) => {
+    console.log(data);
+  }, []);
   return (
     <Layout>
+      <MainNav />
       <PageP className={s.page}>
         {/* <CameraUserMedia /> */}
-        <IntroductionBox />
-        <SkillsBox />
-        <CarrerBox />
-        <Box component="section" className={s.section}>
-          <Container>
-            <h2>Works</h2>
-            <div className="content" />
 
-            <ReactMarkdown source={skillsMarkdown} />
-            {githubProjects.map(project => (
-              <ProjectItem key={project.name} {...project} />
-            ))}
-            <div />
-          </Container>
-        </Box>
-        <Footer />
+        <IntroductionBox onChange={_onChange} />
+        <SkillsBox onChange={_onChange} />
+        <CarrerBox onChange={_onChange} />
+        <WorksBox onChange={_onChange} />
+        <Footer onChange={_onChange} />
       </PageP>
     </Layout>
   );

@@ -40,7 +40,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 a {
-  color: unset !important;
 }
 h1 {
   font-family: 'Satisfy', cursive;
@@ -61,6 +60,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
+
 .logo {
   font-family: 'Amatic SC', Helvetica, sans-serif;
   font-size: 2rem;
