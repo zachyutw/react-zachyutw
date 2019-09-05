@@ -3,7 +3,7 @@
     "short_name": "react-zachyutw",
     "start_url": ".",
     "theme_color": "#ffffff",
-    "background_color": "#ffffff",
+    "background_color": "#333333",
     "display": "standalone",
     "icons": [
         {
