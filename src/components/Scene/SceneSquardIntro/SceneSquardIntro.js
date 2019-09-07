@@ -23,12 +23,15 @@ const SKILLS = [
   { name: 'express', linkUrl: '' },
   { name: 'mongoose', linkUrl: '' },
   { name: 'geomap', linkUrl: '' },
-  { name: 'mapbox', linkUrl: '' },
+  { name: 'mapbox', linkUrl: 'https://lasfu.com' },
   { name: 'html5', linkUrl: '' },
   { name: 'webrtc', linkUrl: '' },
   { name: 'websocket', linkUrl: '' },
   { name: 'scenejs', linkUrl: '' },
-  { name: 'rollup', linkUrl: '' }
+  { name: 'rollup', linkUrl: '' },
+  { name: 'webpack', linkUrl: '' },
+  { name: 'google-colud-fuction', linkUrl: '' },
+  { name: 'puppteer-cheerio', linkUrl: '' }
 ];
 /**
  * @author zachyu.tw
@@ -111,7 +114,7 @@ const SceneSquardIntro = ({ skills = SKILLS }) => {
         return config;
       }, {})
     );
-    scene.setPlaySpeed(1.5);
+    scene.setPlaySpeed(2);
     scene.setEasing('ease-in-out');
     scene.setIterationCount('1');
 

@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useEffect, useContext } from 'react';
-import ButtonMenu from '../../Button/ButtonMenu/ButtonMenu';
-import GlobalContext from '../../../contexts/Global/GlobalContext';
+import ButtonMenu from '../Modules/Button/ButtonMenu';
+import GlobalContext from '../../contexts/Global/GlobalContext';
 import s from './Layout.module.css';
 import { Link } from 'react-router-dom';
 // import ScreenP from '../../Screen/ScreenP/ScreenP';

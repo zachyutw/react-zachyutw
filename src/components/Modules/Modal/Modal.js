@@ -1,6 +1,7 @@
 import React, { useCallback, useMemo } from 'react';
-import './ModalP.scss';
-const ModalP = ({ className, children, actived, setActived, onConfirm, controller, top, bottom, style, justifyContent, backgroundColor, bgStyle, ...rest }) => {
+import ModalSidebar from './ModalSidebar';
+import './Modal.scss';
+const Modal = ({ className, children, actived, setActived, onConfirm, controller, top, bottom, style, justifyContent, backgroundColor, bgStyle, ...rest }) => {
     const handleOnToggle = useCallback(
         () => {
             setActived((state) => !state);
@@ -50,4 +51,5 @@ const ModalP = ({ className, children, actived, setActived, onConfirm, controlle
         </div>
     );
 };
-export default ModalP;
+Modal.Sidebar = ModalSidebar;
+export default Modal;

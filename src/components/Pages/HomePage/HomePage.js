@@ -6,40 +6,50 @@ import React, {
   useEffect,
   useMemo
 } from 'react';
-import Layout from '../../App/Layout/Layout';
-import PageP from '../../App/PageP/PageP';
-import SectionP from '../../App/SectionP/SectionP';
-import s from './HomePage.module.css';
-import ReactMarkdown from 'react-markdown/with-html';
 import _ from 'lodash';
-import SvgEffectTitle from '../../SvgEffect/SvgEffectTitle/SvgEffectTitle';
+import useIsScrolledIntoView from 'react-use-is-scrolled-into-view';
+import axios from 'axios';
+import moment from 'moment';
+import icsToJson from 'ics-to-json';
+import ReactMarkdown from 'react-markdown/with-html';
 import {
   Container,
-  Box,
   Link as MLink,
   Stepper,
   Step,
   StepLabel,
   Typography,
+  Button,
   StepContent,
   Chip,
   BottomNavigation,
-  BottomNavigationAction
+  BottomNavigationAction,
+  Card,
+  CardActionArea,
+  CardMedia,
+  CardContent,
+  CardActions
 } from '@material-ui/core';
-import useIsScrolledIntoView from 'react-use-is-scrolled-into-view';
-import axios from 'axios';
+import { Skeleton } from '@material-ui/lab';
+import GlobalContext from '../../../contexts/Global/GlobalContext';
+import LayoutR from '../../Layout/LayoutR/LayoutR';
+import PageP from '../../Modules/PageP/PageP';
+import s from './HomePage.module.css';
+import SvgEffectTitle from '../../SvgEffect/SvgEffectTitle/SvgEffectTitle';
+
+import faker from 'faker';
+// import SectionP from '../../App/SectionP/SectionP';
 // import CanvasEffectRaining from '../../CanvasEffect/CanvasEffectRaining/CanvasEffectRaining';
 // import SceneSquardIntro from '../../Scene/SceneSquardIntro/SceneSquardIntro';
-import moment from 'moment';
-import icsToJson from 'ics-to-json';
-import GlobalContext from '../../../contexts/Global/GlobalContext';
 
-const FOOTER = 'footer';
+// const FOOTER = 'footer';
 const INTRODUCTION = 'introduction';
 const SKILLS = 'skills';
 const CAREER = 'career';
 const WORKS = 'works';
-const skillsMarkdown = ` ### Using modern technologies to build Mobile, Responsive web applications
+const skillsMarkdown = ` 
+ ## Tech Dtails
+ ### Using modern technologies to build Mobile, Responsive web applications
   ### Advance React knowledage 
   * hooks
   * HOC
@@ -48,10 +58,19 @@ const skillsMarkdown = ` ### Using modern technologies to build Mobile, Responsi
   * form-control 
   * content api
   ### Advance Web Design
-  * new Flex property
+  * flex css3 property
   * transform animation
-  * media responsive
-  * 
+  * media responsive design
+  * grid layout
+  ### Cloud Computing
+  * firebase
+  * cloud function
+  ### Advance NodeJS
+  * publish Node Package
+  * JWT OAuth from scratch
+  * puppetteer, cheerio for crawler
+  * socketIO
+  * mongoose
   `;
 const mainNavs = [
   { href: '#' + INTRODUCTION, innerText: INTRODUCTION },
@@ -61,31 +80,72 @@ const mainNavs = [
 ];
 
 const FETCH_DATA_URL =
-  'https://us-central1-soy-haven-237204.cloudfunctions.net/getData';
-const SCEENSHOT_URL =
-  'https://us-central1-soy-haven-237204.cloudfunctions.net/cors/api/sceenshot';
+  'https://us-central1-soy-haven-237204.cloudfunctions.net/cors/api/webtextfile';
+const WEBPAGE_URL =
+  'https://us-central1-soy-haven-237204.cloudfunctions.net/cors/api/webpage';
 
 const SceneSquardIntro = React.lazy(() =>
   import('../../Scene/SceneSquardIntro/SceneSquardIntro')
 );
 const githubProjects = [
   {
-    name: 'react-google-journey',
-    imageUrl: null,
-    url: 'https://zachyutw.github.io/react-google-journey/'
+    name: 'lasfu',
+    url: 'https://lasfu.com'
+  },
+  {
+    name: 'react-zachyutw',
+    url: 'https://zachyutw.github.io/react-zachyutw'
+  },
+  {
+    name: 'Roro ',
+    url: 'https://dev.roro.one'
+  },
+  {
+    name: 'react-use-is-scrolled-into-view',
+    url: 'https://github.com/zachyutw/react-use-is-scrolled-into-view'
+  },
+  {
+    name: 'with-item-events',
+    url: 'https://github.com/zachyutw/with-item-events'
+  },
+  {
+    name: 'zach-local-storage-safe',
+    url: 'https://github.com/zachyutw/zach-local-storage-safe'
+  },
+  {
+    name: 'askmirrorFramework',
+    url: 'https://github.com/zachyutw/askmirrorFramework'
   }
 ];
+
+const Pargraph = ({ text = '', maxLength = 10 }) => {
+  const [isMore, setIsMore] = useState(text.length > maxLength);
+  const _onClick = useCallback(() => {
+    setIsMore(value => !value);
+  }, []);
+  useEffect(() => {
+    setIsMore(text.length > maxLength);
+  }, [text]);
+
+  return (
+    <React.Fragment>
+      {text.length > maxLength && isMore ? text.slice(0, maxLength) : text}
+      {isMore && <span onClick={_onClick}>...</span>}
+    </React.Fragment>
+  );
+};
 
 const MainNav = ({ children, className }) => {
   const { activedSection } = useContext(GlobalContext);
 
   return (
     <div className={className}>
-      <BottomNavigation className={s.mainNavs}>
+      <BottomNavigation className={s.mainNavs} style={{ padding: '0 1rem' }}>
         {mainNavs.map(({ href, innerText }) => (
           <BottomNavigationAction
             key={href}
             href={href}
+            rel="noopener noreferrer"
             component={MLink}
             data-selected={activedSection === innerText}
             showLabel
@@ -99,25 +159,101 @@ const MainNav = ({ children, className }) => {
 };
 const ProjectItem = ({ name, imageUrl: propImageUrl, url }) => {
   const [imageUrl, setImageUrl] = useState(propImageUrl);
+  const [description, setDescription] = useState('');
+  const [readme, setReadme] = useState('');
   useEffect(() => {
-    axios.post(SCEENSHOT_URL, { url }).then(res => {
-      setImageUrl(() => {
-        return res.data.jpegBase64;
-      });
-    });
-  }, []);
+    if (url) {
+      axios
+        .post(WEBPAGE_URL, { url })
+        .then(res => {
+          const meta = res.data.meta || {};
+          console.log(res.data);
+          setImageUrl(() => {
+            let imageUrl = null;
+
+            if (meta['og:image']) {
+              imageUrl = meta['og:image'];
+            } else if (meta['twitter:image:src']) {
+              imageUrl = meta['twitter:image:src'];
+            } else if (meta['twitter:image']) {
+              imageUrl = meta['twitter:image'];
+            }
+            return imageUrl;
+          });
+
+          setDescription(() => {
+            let description = '';
+            if (meta['og:description']) {
+              description = meta['og:description'];
+            } else if (meta['twitter:description']) {
+              description = meta['twitter:description'];
+            } else if (meta['description']) {
+              description = meta['description'];
+            }
+            return description;
+          });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+
+      if (new RegExp('github.com', 'g').test(url)) {
+        axios
+          .post(FETCH_DATA_URL, {
+            url:
+              url.replace('github.com', 'raw.githubusercontent.com') +
+              '/master/README.md'
+          })
+          .then(res => {
+            console.log(res.data);
+          });
+      }
+    }
+  }, [url]);
 
   return (
-    <div className={s.project} style={{ backgroundImage: `url(${imageUrl})` }}>
-      <h4>Github</h4>
-      <button className="ui button black">{name}</button>
-    </div>
+    <Card>
+      <CardActionArea>
+        {imageUrl ? (
+          <CardMedia
+            style={{ height: '15rem' }}
+            image={imageUrl}
+            title={name}
+          />
+        ) : (
+          <Skeleton variant="rect" width="100%" height={118} />
+        )}
+
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            {name}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            <Pargraph text={description} maxLength={150} />
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button component={MLink} href={url} size="small" color="primary">
+          Learn More
+        </Button>
+      </CardActions>
+    </Card>
+    // <div className={s.project} style={{ backgroundImage: `url(${imageUrl})` }}>
+    //     <Button component={MLink} rel='noopener noreferrer' href={url} target='_blank'>
+    //         {name}
+    //     </Button>
+    // </div>
   );
 };
 
 const MailToLink = ({ send, body, innerText, children }) => {
   return (
-    <MLink target="_blank" href={`mailto:${send}?body=${encodeURI(body)}`}>
+    <MLink
+      target="_blank"
+      href={`mailto:${send}?body=${encodeURI(body)}`}
+      rel="noopener noreferrer"
+    >
       {innerText}
       {children}
     </MLink>
@@ -126,7 +262,7 @@ const MailToLink = ({ send, body, innerText, children }) => {
 
 const Footer = () => {
   return (
-    <section id={Footer} className={s.section}>
+    <section className={s.section}>
       <Container>
         <p>{`Copyright © ${process.env.REACT_APP_AUTHER_NAME}`}</p>
         <MailToLink
@@ -139,16 +275,6 @@ const Footer = () => {
     </section>
   );
 };
-const MOMENT_FORMAT = 'YYYY-MM-DD';
-const RORO_COMPANY = '997 Seymour St Vancouver, BC';
-const timeline = [
-  {
-    start: moment('2019-03-01').format(MOMENT_FORMAT),
-    end: moment('2019-05-01').format(MOMENT_FORMAT),
-    location: RORO_COMPANY,
-    geo: { lat: 49.2789453, lon: -123.1241788 }
-  }
-];
 
 const HomeIntro = () => {
   const ref = useRef(null);
@@ -166,6 +292,13 @@ const HomeIntro = () => {
       <a className="ui button black basic" href="" alt="">
         Github
       </a>
+      <div>
+        <h2>About</h2>
+        <p>
+          I am a coding lover who live in Vancouver. Have experices with
+          building complex web application. Fouthur more,{' '}
+        </p>
+      </div>
     </div>
   );
 };
@@ -270,13 +403,7 @@ const SkillsBox = () => {
       <div>
         <h2>Skills</h2>
         <SceneSquardIntro />
-      </div>
-      <div>
-        <h2>About</h2>
-        <p>
-          I am a coding lover who live in Vancouver. Have experices with
-          building complex web application. Fouthur more,{' '}
-        </p>
+        <ReactMarkdown source={skillsMarkdown} />
       </div>
     </SectionContainer>
   );
@@ -296,11 +423,11 @@ const WorksBox = () => {
   return (
     <SectionContainer id={WORKS}>
       <h2>Works</h2>
-      <div className="content" />
-      <ReactMarkdown source={skillsMarkdown} />
-      {githubProjects.map(project => (
-        <ProjectItem key={project.name} {...project} />
-      ))}
+      <div className={[s.works, 'content'].join(' ')}>
+        {githubProjects.map(project => (
+          <ProjectItem key={project.name} {...project} />
+        ))}
+      </div>
       <div />
     </SectionContainer>
   );
@@ -315,7 +442,7 @@ const HomePage = ({
     console.log(data);
   }, []);
   return (
-    <Layout>
+    <LayoutR>
       <MainNav />
       <PageP className={s.page}>
         {/* <CameraUserMedia /> */}
@@ -326,7 +453,7 @@ const HomePage = ({
         <WorksBox onChange={_onChange} />
         <Footer onChange={_onChange} />
       </PageP>
-    </Layout>
+    </LayoutR>
   );
 };
 

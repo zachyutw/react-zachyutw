@@ -1,5 +1,5 @@
 import React, { useContext, useCallback } from 'react';
-import ModalP from '../ModalP/ModalP';
+import ModalP from './Modal';
 import GlobalContext from '../../../contexts/Global/GlobalContext';
 import s from './ModalConfirm.module.css';
 

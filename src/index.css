@@ -60,6 +60,19 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
+*::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+  display: none;
+}
+*::-webkit-scrollbar-thumb {
+  background: #ff0000;
+}
+@media (max-width: 1024px) {
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+}
 
 .logo {
   font-family: 'Amatic SC', Helvetica, sans-serif;
@@ -156,4 +169,34 @@ code {
   to {
     margin-top: 900px;
   }
+}
+
+.block-with-text {
+  text-align: justify;
+  overflow: hidden;
+}
+/* create the ... */
+.block-with-text:before {
+  /* points in the end */
+  content: '...';
+  /* absolute position */
+  position: absolute;
+  /* set position to right bottom corner of block */
+  right: 0;
+  bottom: 1rem;
+}
+/* hide ... if we have text, which is less than or equal to max lines */
+.block-with-text:after {
+  /* points in the end */
+  content: '';
+  /* absolute position */
+  position: absolute;
+  /* set position to right bottom corner of text */
+  right: 0;
+  /* set width and height */
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  /* bg color = bg color under block */
+  background: white;
 }

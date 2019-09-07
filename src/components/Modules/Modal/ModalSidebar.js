@@ -1,5 +1,5 @@
-import React, { useContext, useCallback } from 'react';
-import ModalP from '../ModalP/ModalP';
+import React from 'react';
+import ModalP from './Modal';
 import s from './ModalSidebar.module.css';
 
 const transitionStyle = (actived, side = 'left') => {
@@ -17,8 +17,7 @@ const ModalSidebar = ({ onConfirm, children, className, setActived, backgroundCo
             backgroundColor={backgroundColor}
             onConfirm={onConfirm}
             setActived={setActived}
-            {...rest}
-        >
+            {...rest}>
             {children}
         </ModalP>
     );

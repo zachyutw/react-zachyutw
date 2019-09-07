@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import _ from 'lodash';
 import { withRouter } from 'react-router-dom';
 import { navMainFields } from '../../../routes/Routes';
-import ItemP from '../../App/ItemP/ItemP';
+import ItemP from '../../Modules/ItemP/ItemP';
 import s from './Navmain.module.css';
 import { centerSort } from '../../../lib';
 const navmainField = _.map(navMainFields, ({ name, main }) => ({

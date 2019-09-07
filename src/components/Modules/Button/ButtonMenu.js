@@ -1,5 +1,5 @@
 import React, { useContext, useCallback } from 'react';
-import ModalSidebar from '../../Modal/ModalSidebar/ModalSidebar';
+import ModalSidebar from '../../Modules/Modal/ModalSidebar';
 import Navmain from '../../Nav/Navmain/Navmain';
 import useModal from '../../../hooks/useModal';
 import s from './ButtonMenu.module.css';

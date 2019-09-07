@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import ModalP from '../ModalP/ModalP';
+import ModalP from './Modal';
 import useCountdown from '../../../hooks/useCountdown';
 import s from './ModalNotification.module.css';
 

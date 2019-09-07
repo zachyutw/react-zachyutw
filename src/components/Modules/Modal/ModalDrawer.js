@@ -1,5 +1,5 @@
 import React, { useContext, useCallback } from 'react';
-import ModalP from '../ModalP/ModalP';
+import ModalP from './Modal';
 import s from './ModalDrawer.module.css';
 
 const transitionStyle = (actived, side = 'top') => {
@@ -17,8 +17,7 @@ const ModalDrawer = ({ onConfirm, children, setActived, className, backgroundCol
             backgroundColor={backgroundColor}
             onConfirm={onConfirm}
             setActived={setActived}
-            {...rest}
-        >
+            {...rest}>
             {children}
         </ModalP>
     );
