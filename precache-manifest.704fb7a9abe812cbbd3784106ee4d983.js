@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7e933854eed6985b7a5d87042aea20ff",
+    "revision": "9bd41dc474cd65cec232b73acfbcdfe5",
     "url": "/react-zachyutw/index.html"
   },
   {
@@ -8,44 +8,44 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-zachyutw/static/css/3.8e3a174e.chunk.css"
   },
   {
-    "revision": "21a0738c211e5113850d",
-    "url": "/react-zachyutw/static/css/4.c40bf558.chunk.css"
+    "revision": "f590f5f8069a83c8baf8",
+    "url": "/react-zachyutw/static/css/4.e547ab33.chunk.css"
   },
   {
-    "revision": "8818b826bd853fca47d4",
-    "url": "/react-zachyutw/static/css/6.ba48e6e0.chunk.css"
+    "revision": "adb663469aff06759069",
+    "url": "/react-zachyutw/static/css/6.175be7a3.chunk.css"
   },
   {
-    "revision": "12171f5555a5e7c43be7",
-    "url": "/react-zachyutw/static/css/main.6915a142.chunk.css"
+    "revision": "88a1e792eb8a59b55592",
+    "url": "/react-zachyutw/static/css/main.35745fc2.chunk.css"
   },
   {
-    "revision": "f1b3439be72044923154",
-    "url": "/react-zachyutw/static/js/2.7fcc9f0c.chunk.js"
+    "revision": "0ac41a29426abd9646b5",
+    "url": "/react-zachyutw/static/js/2.15284539.chunk.js"
   },
   {
     "revision": "b1d64741002c7b3af5ba",
     "url": "/react-zachyutw/static/js/3.f8c242fd.chunk.js"
   },
   {
-    "revision": "21a0738c211e5113850d",
-    "url": "/react-zachyutw/static/js/4.b6afb75f.chunk.js"
+    "revision": "f590f5f8069a83c8baf8",
+    "url": "/react-zachyutw/static/js/4.c53da8ea.chunk.js"
   },
   {
-    "revision": "b69aa847c5809bbe2725",
-    "url": "/react-zachyutw/static/js/5.3ca91e37.chunk.js"
+    "revision": "3c04aaa21e10ff14275d",
+    "url": "/react-zachyutw/static/js/5.41557105.chunk.js"
   },
   {
-    "revision": "8818b826bd853fca47d4",
-    "url": "/react-zachyutw/static/js/6.5f7e74da.chunk.js"
+    "revision": "adb663469aff06759069",
+    "url": "/react-zachyutw/static/js/6.c3a833ba.chunk.js"
   },
   {
-    "revision": "12171f5555a5e7c43be7",
+    "revision": "88a1e792eb8a59b55592",
     "url": "/react-zachyutw/static/js/main.35fce21e.chunk.js"
   },
   {
-    "revision": "971f435079b936b060df",
-    "url": "/react-zachyutw/static/js/runtime~main.d6740b8f.js"
+    "revision": "eea576897186b1665a5e",
+    "url": "/react-zachyutw/static/js/runtime~main.9fb05007.js"
   },
   {
     "revision": "13db00b7a34fee4d819ab7f9838cc428",
