@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1549cefc98e0eedd91a4324bd45331fb",
+    "revision": "a53712d1785c9e9a0b6415a0acedf3e5",
     "url": "/react-zachyutw/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-zachyutw/static/css/3.8e3a174e.chunk.css"
   },
   {
-    "revision": "11324dfb40082935857e",
+    "revision": "4aab60b66b921a7b3da1",
     "url": "/react-zachyutw/static/css/4.00d1c3f6.chunk.css"
   },
   {
@@ -24,16 +24,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-zachyutw/static/js/3.e1280b6c.chunk.js"
   },
   {
-    "revision": "11324dfb40082935857e",
-    "url": "/react-zachyutw/static/js/4.1184e52a.chunk.js"
+    "revision": "4aab60b66b921a7b3da1",
+    "url": "/react-zachyutw/static/js/4.301e69c1.chunk.js"
   },
   {
     "revision": "fbdc259f6210194deced",
     "url": "/react-zachyutw/static/js/main.8bba7ec2.chunk.js"
   },
   {
-    "revision": "bc19587d46fc0e053c16",
-    "url": "/react-zachyutw/static/js/runtime~main.0f9500c6.js"
+    "revision": "458f5d1feb019b1621a4",
+    "url": "/react-zachyutw/static/js/runtime~main.bfba959e.js"
   },
   {
     "revision": "13db00b7a34fee4d819ab7f9838cc428",
