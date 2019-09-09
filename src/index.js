@@ -7,7 +7,10 @@ import { Provider as GlobalProvider } from './contexts/Global/GlobalContext';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import Routes from './routes/Routes';
-
+import disabledHoverEffectInMobile from './utils/disabledHoverEffectInMobile';
+import displayLocalStorageInfo from './utils/displayLocalStorageInfo';
+displayLocalStorageInfo();
+disabledHoverEffectInMobile();
 ReactDOM.render(
   <BrowserRouter>
     <GlobalProvider>

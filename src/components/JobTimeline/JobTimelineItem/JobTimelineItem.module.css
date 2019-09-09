@@ -1,0 +1,20 @@
+.steplabel {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.steplabel a {
+  overflow-wrap: break-word;
+  width: 20rem;
+}
+.pearid_location_icon {
+  display: flex;
+  flex-direction: column;
+}
+.timeperiod {
+  position: relative;
+}
+.timeperiod > *:nth-child(even) {
+  margin-left: 0.5rem;
+}

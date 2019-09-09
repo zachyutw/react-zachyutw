@@ -1,4 +1,4 @@
-.page .section {
+.page > section {
   height: auto;
   min-height: 100vh;
   /* max-height: 2000px; */
@@ -10,15 +10,15 @@
   margin-bottom: 1rem;
 }
 
-.page .section:nth-child(odd) {
+.page > section:nth-child(odd) {
   background: var(--bg);
   color: var(--word);
 }
-.page .section:nth-child(even) {
+.page > section:nth-child(even) {
   background: var(--word);
   color: var(--bg);
 }
-.page .section:last-child {
+.page > section:last-child {
   height: 20rem;
   min-height: 20rem;
   max-height: 2000px;
@@ -63,49 +63,7 @@
   color: #333 !important;
   background: rgba(255, 255, 255, 0.5) !important;
 }
-.timeperiod {
-  position: relative;
-}
-.timeperiod > *:nth-child(even) {
-  margin-left: 0.5rem;
-}
-.pearid_location_icon {
-  display: flex;
-  flex-direction: column;
-}
-.steplabel {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.steplabel a {
-  overflow-wrap: break-word;
-  width: 20rem;
-}
-.mainNavs {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1;
-  background: #fff;
-  display: flex;
-  overflow-x: auto;
-  overflow-y: hidden;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.mainNavs > * {
-  padding: 1rem;
-  transition: transform 300ms ease-in-out;
-  transform: scale(1);
-}
-.mainNavs > *[data-selected='true'] {
-  transition: transform 300ms ease-in-out;
-  transform: scale(1.3);
-}
+
 .works {
   display: flex;
   flex-direction: row;

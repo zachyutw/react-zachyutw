@@ -1,43 +1,40 @@
-import React, { useMemo } from 'react';
-import _ from 'lodash';
-import { withRouter } from 'react-router-dom';
-import { navMainFields } from '../../../routes/Routes';
-import ItemP from '../../Modules/ItemP/ItemP';
-import s from './Navmain.module.css';
-import { centerSort } from '../../../lib';
-const navmainField = _.map(navMainFields, ({ name, main }) => ({
-  name,
-  to: main.path,
-  text: _.capitalize(name)
-}));
-console.log(navmainField);
-// const navmainField ={
-//     home: { name: 'home', to: '/home', text: 'Home' },
-//     app: { name: 'app', to: '/', text: 'App' },
-//     auth: { name: 'auth', to: '/auth', text: 'Auth' }
-// };
-const navmainFields = Object.values(navmainField);
-const middleNavmainFields = centerSort(navmainFields);
-const Navmain = ({ onChange, name = 'vertical' }) => {
-  const memoFields = useMemo(() => {
-    switch (name) {
-      case 'horizontal':
-        return middleNavmainFields;
-      default:
-        return navmainFields;
-    }
-  }, [name]);
+import React, { useContext } from 'react';
+import GlobalContext from '../../../contexts/Global/GlobalContext';
+import {
+  Link as MLink,
+  BottomNavigation,
+  BottomNavigationAction
+} from '@material-ui/core';
+import s from './NavMain.module.css';
+const INTRODUCTION = 'introduction';
+const SKILLS = 'skills';
+const CAREER = 'career';
+const WORKS = 'works';
+const mainNavs = [
+  { href: '#' + INTRODUCTION, innerText: INTRODUCTION },
+  { href: '#' + SKILLS, innerText: SKILLS },
+  { href: '#' + CAREER, innerText: CAREER },
+  { href: '#' + WORKS, innerText: WORKS }
+];
+const NavMain = ({ children, className }) => {
+  const { activedSection } = useContext(GlobalContext);
   return (
-    <div className={[s.nav, s[name]].join(' ')}>
-      {memoFields.map(field => (
-        <ItemP
-          key={field.name}
-          // className=' inverted ui segment fluid attached'
-          {...field}
-        />
-      ))}
+    <div className={className}>
+      <BottomNavigation className={s.mainNavs} style={{ padding: '0 1rem' }}>
+        {mainNavs.map(({ href, innerText }) => (
+          <BottomNavigationAction
+            key={href}
+            href={href}
+            rel="noopener noreferrer"
+            component={MLink}
+            data-selected={activedSection === innerText}
+            showLabel
+            label={innerText.toUpperCase()}
+          />
+        ))}
+      </BottomNavigation>
+      {children}
     </div>
   );
 };
-
-export default withRouter(Navmain);
+export default NavMain;

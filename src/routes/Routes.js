@@ -5,7 +5,7 @@ const HomePage = React.lazy(() =>
 );
 
 export const homeRoute = {
-  main: { path: '/:target?', name: 'home', url: '/', name: 'home', to: '/' }
+  main: { path: '/:target?', name: 'home', url: '/', to: '/' }
 };
 export const navMainFields = [homeRoute];
 const Routes = () => {

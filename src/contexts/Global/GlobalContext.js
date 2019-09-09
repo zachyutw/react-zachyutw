@@ -1,9 +1,8 @@
 import React, { createContext, useState, useCallback, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
-import detectIt from 'detect-it';
-import _ from 'lodash';
+// import _ from 'lodash';
 // import useWindowScroll from '../../hooks/useWindowScroll';
-const GlobalContext = createContext({});
+const Context = createContext({});
 
 export const Provider = withRouter(props => {
   const [state, setState] = useState({});
@@ -11,13 +10,6 @@ export const Provider = withRouter(props => {
   // const { scrollMoving, wheelEvent } = useWindowScroll(true, 1000);
   window.pushG = props.history.push;
   window.replaceG = props.history.replace;
-  window.t = text => text;
-  // const handleOnScroll = useCallback(
-  //     _.debounce(() => {
-  //         console.log(window);
-  //     }, 50),
-  //     []
-  // );
   const _onChange = useCallback((e, data) => {
     switch (data.actionType) {
       case 'sectionIntoView':
@@ -38,15 +30,15 @@ export const Provider = withRouter(props => {
     // };
   }, []);
   return (
-    <GlobalContext.Provider
+    <Context.Provider
       value={{ ...state, setState, onChange: _onChange, activedSection }}
     >
       {props.children}
-    </GlobalContext.Provider>
+    </Context.Provider>
   );
 });
 
-export const withGlobal = Componet => props => {
+export const withContext = Componet => props => {
   return (
     <Provider>
       <Componet {...props} />
@@ -54,4 +46,4 @@ export const withGlobal = Componet => props => {
   );
 };
 
-export default GlobalContext;
+export default Context;
