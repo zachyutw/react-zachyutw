@@ -1,51 +1,39 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e4ac1d0c6a0a559e16b9a6666724b16a",
+    "revision": "a130c7aab944847c13b3bb2643d5cc03",
     "url": "/react-zachyutw/index.html"
   },
   {
-    "revision": "b1d64741002c7b3af5ba",
+    "revision": "091cd9a8482a6919ae6e",
     "url": "/react-zachyutw/static/css/3.8e3a174e.chunk.css"
   },
   {
-    "revision": "05b3bc16d42c046f8850",
-    "url": "/react-zachyutw/static/css/4.e547ab33.chunk.css"
+    "revision": "e2ed863c006c4b0092c7",
+    "url": "/react-zachyutw/static/css/4.00d1c3f6.chunk.css"
   },
   {
-    "revision": "adb663469aff06759069",
-    "url": "/react-zachyutw/static/css/6.175be7a3.chunk.css"
-  },
-  {
-    "revision": "88a1e792eb8a59b55592",
+    "revision": "fbdc259f6210194deced",
     "url": "/react-zachyutw/static/css/main.35745fc2.chunk.css"
   },
   {
-    "revision": "68d1b1e88cdb8ea61e7d",
-    "url": "/react-zachyutw/static/js/2.8cceb247.chunk.js"
+    "revision": "60a6cbc4ed2b3e4489f8",
+    "url": "/react-zachyutw/static/js/2.61930960.chunk.js"
   },
   {
-    "revision": "b1d64741002c7b3af5ba",
-    "url": "/react-zachyutw/static/js/3.f8c242fd.chunk.js"
+    "revision": "091cd9a8482a6919ae6e",
+    "url": "/react-zachyutw/static/js/3.e1280b6c.chunk.js"
   },
   {
-    "revision": "05b3bc16d42c046f8850",
-    "url": "/react-zachyutw/static/js/4.0fd98e98.chunk.js"
+    "revision": "e2ed863c006c4b0092c7",
+    "url": "/react-zachyutw/static/js/4.98e1565f.chunk.js"
   },
   {
-    "revision": "3c04aaa21e10ff14275d",
-    "url": "/react-zachyutw/static/js/5.41557105.chunk.js"
+    "revision": "fbdc259f6210194deced",
+    "url": "/react-zachyutw/static/js/main.8bba7ec2.chunk.js"
   },
   {
-    "revision": "adb663469aff06759069",
-    "url": "/react-zachyutw/static/js/6.c3a833ba.chunk.js"
-  },
-  {
-    "revision": "88a1e792eb8a59b55592",
-    "url": "/react-zachyutw/static/js/main.35fce21e.chunk.js"
-  },
-  {
-    "revision": "c63334a47e2de04a1d05",
-    "url": "/react-zachyutw/static/js/runtime~main.7b144664.js"
+    "revision": "224be8d31bb52e7c4655",
+    "url": "/react-zachyutw/static/js/runtime~main.27f014c4.js"
   },
   {
     "revision": "13db00b7a34fee4d819ab7f9838cc428",
