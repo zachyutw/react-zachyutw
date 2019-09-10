@@ -1,0 +1,29 @@
+.works {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.works > * {
+  flex: 1 1 28%;
+  width: 28%;
+  max-width: 28%;
+  margin: 1rem;
+}
+
+@media screen and (max-width: 1025px) {
+  .works > * {
+    flex: 1 1 40%;
+    width: 40%;
+    max-width: 40%;
+    margin: 1rem;
+  }
+}
+@media screen and (max-width: 426px) {
+  .works > * {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+    margin: 1rem;
+  }
+}

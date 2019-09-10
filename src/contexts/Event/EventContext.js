@@ -18,7 +18,7 @@ const getItems = dipatch => async ({ url }) => {
     })
     .catch(err => {
       console.log(err);
-      return '';
+      return [];
     });
   dipatch({ actionType: GET_ITEMS, name: 'items', payload: { items: data } });
 };

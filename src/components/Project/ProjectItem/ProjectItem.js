@@ -36,7 +36,8 @@ const ProjectItem = ({ name, imageUrl, url, description }) => {
       </CardActionArea>
       <CardActions>
         <Button component={MLink} href={url} size="small" color="primary">
-          Learn More
+          {name}
+          {` Link`}
         </Button>
       </CardActions>
     </Card>
