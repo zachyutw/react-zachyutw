@@ -1,39 +1,83 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1944a7d719ebcbcf678f08e410d486f0",
+    "revision": "305c92a755347b46463991de40b08da6",
     "url": "/react-zachyutw/index.html"
   },
   {
-    "revision": "091cd9a8482a6919ae6e",
-    "url": "/react-zachyutw/static/css/3.8e3a174e.chunk.css"
+    "revision": "2aa7d1dd4839d66da866",
+    "url": "/react-zachyutw/static/css/10.25aa1113.chunk.css"
   },
   {
-    "revision": "816467c7e5283af6ce44",
-    "url": "/react-zachyutw/static/css/4.00d1c3f6.chunk.css"
+    "revision": "f90813771ba97d4a8bf8",
+    "url": "/react-zachyutw/static/css/5.8e3a174e.chunk.css"
   },
   {
-    "revision": "fbdc259f6210194deced",
+    "revision": "c6d0167053496bedd89e",
+    "url": "/react-zachyutw/static/css/6.afb2c301.chunk.css"
+  },
+  {
+    "revision": "efdfd1ab5a6997f9aa83",
+    "url": "/react-zachyutw/static/css/8.175be7a3.chunk.css"
+  },
+  {
+    "revision": "b89d361d71a2340c5860",
+    "url": "/react-zachyutw/static/css/9.375c5c46.chunk.css"
+  },
+  {
+    "revision": "030b6efdaedb985caf81",
     "url": "/react-zachyutw/static/css/main.35745fc2.chunk.css"
   },
   {
-    "revision": "4bde2548a7c548e2aa18",
-    "url": "/react-zachyutw/static/js/2.a7459743.chunk.js"
+    "revision": "55064fe0ad283d2bf3f7",
+    "url": "/react-zachyutw/static/js/0.48d9e847.chunk.js"
   },
   {
-    "revision": "091cd9a8482a6919ae6e",
-    "url": "/react-zachyutw/static/js/3.e1280b6c.chunk.js"
+    "revision": "2aa7d1dd4839d66da866",
+    "url": "/react-zachyutw/static/js/10.1bdbb18f.chunk.js"
   },
   {
-    "revision": "816467c7e5283af6ce44",
-    "url": "/react-zachyutw/static/js/4.b6a86731.chunk.js"
+    "revision": "272399fa816a2f6b1a00",
+    "url": "/react-zachyutw/static/js/11.6318ae26.chunk.js"
   },
   {
-    "revision": "fbdc259f6210194deced",
-    "url": "/react-zachyutw/static/js/main.8bba7ec2.chunk.js"
+    "revision": "9df554c180066daef021",
+    "url": "/react-zachyutw/static/js/3.2d5b1887.chunk.js"
   },
   {
-    "revision": "9a6dcfbb076372d41895",
-    "url": "/react-zachyutw/static/js/runtime~main.e22fd4c3.js"
+    "revision": "46c935412dd19bdc4770",
+    "url": "/react-zachyutw/static/js/4.e1b327b8.chunk.js"
+  },
+  {
+    "revision": "f90813771ba97d4a8bf8",
+    "url": "/react-zachyutw/static/js/5.1c0eba70.chunk.js"
+  },
+  {
+    "revision": "c6d0167053496bedd89e",
+    "url": "/react-zachyutw/static/js/6.5beead2a.chunk.js"
+  },
+  {
+    "revision": "ea382bd97df9d411323f",
+    "url": "/react-zachyutw/static/js/7.fe17d78a.chunk.js"
+  },
+  {
+    "revision": "efdfd1ab5a6997f9aa83",
+    "url": "/react-zachyutw/static/js/8.a7985d84.chunk.js"
+  },
+  {
+    "revision": "b89d361d71a2340c5860",
+    "url": "/react-zachyutw/static/js/9.7c376246.chunk.js"
+  },
+  {
+    "revision": "030b6efdaedb985caf81",
+    "url": "/react-zachyutw/static/js/main.4dd743bf.chunk.js"
+  },
+  {
+    "revision": "6a1201cec1d5c5e22ab0",
+    "url": "/react-zachyutw/static/js/runtime~main.18cad8d3.js"
+  },
+  {
+    "revision": "4b702ad80e6f3860183a6b0ab71bd96a",
+    "url": "/react-zachyutw/static/media/advanceSkills.4b702ad8.md"
   },
   {
     "revision": "13db00b7a34fee4d819ab7f9838cc428",
