@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "305c92a755347b46463991de40b08da6",
+    "revision": "1053a73ddfe070d9afe908b3d728ec27",
     "url": "/react-zachyutw/index.html"
   },
   {
-    "revision": "2aa7d1dd4839d66da866",
+    "revision": "9debf177b925c17b7340",
     "url": "/react-zachyutw/static/css/10.25aa1113.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-zachyutw/static/css/5.8e3a174e.chunk.css"
   },
   {
-    "revision": "c6d0167053496bedd89e",
-    "url": "/react-zachyutw/static/css/6.afb2c301.chunk.css"
+    "revision": "d5967da0cf364ecffddf",
+    "url": "/react-zachyutw/static/css/6.2d7d177b.chunk.css"
   },
   {
     "revision": "efdfd1ab5a6997f9aa83",
@@ -32,8 +32,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-zachyutw/static/js/0.48d9e847.chunk.js"
   },
   {
-    "revision": "2aa7d1dd4839d66da866",
-    "url": "/react-zachyutw/static/js/10.1bdbb18f.chunk.js"
+    "revision": "9debf177b925c17b7340",
+    "url": "/react-zachyutw/static/js/10.99149091.chunk.js"
   },
   {
     "revision": "272399fa816a2f6b1a00",
@@ -52,8 +52,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-zachyutw/static/js/5.1c0eba70.chunk.js"
   },
   {
-    "revision": "c6d0167053496bedd89e",
-    "url": "/react-zachyutw/static/js/6.5beead2a.chunk.js"
+    "revision": "d5967da0cf364ecffddf",
+    "url": "/react-zachyutw/static/js/6.d2154bb5.chunk.js"
   },
   {
     "revision": "ea382bd97df9d411323f",
@@ -72,8 +72,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/react-zachyutw/static/js/main.4dd743bf.chunk.js"
   },
   {
-    "revision": "6a1201cec1d5c5e22ab0",
-    "url": "/react-zachyutw/static/js/runtime~main.18cad8d3.js"
+    "revision": "4321da78504234bedd89",
+    "url": "/react-zachyutw/static/js/runtime~main.4696a916.js"
   },
   {
     "revision": "4b702ad80e6f3860183a6b0ab71bd96a",
